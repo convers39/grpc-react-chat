@@ -36,7 +36,10 @@ export class RandomClient {
     this.options_ = options;
   }
 
-  methodInfoChatInitiate = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoChatInitiate = new grpcWeb.MethodDescriptor(
+    '/randomPackage.Random/ChatInitiate',
+    grpcWeb.MethodType.UNARY,
+    proto_random_pb.InitiateRequest,
     proto_random_pb.InitiateResponse,
     (request: proto_random_pb.InitiateRequest) => {
       return request.serializeBinary();
@@ -51,13 +54,13 @@ export class RandomClient {
   chatInitiate(
     request: proto_random_pb.InitiateRequest,
     metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: proto_random_pb.InitiateResponse) => void): grpcWeb.ClientReadableStream<proto_random_pb.InitiateResponse>;
 
   chatInitiate(
     request: proto_random_pb.InitiateRequest,
     metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.Error,
+    callback?: (err: grpcWeb.RpcError,
                response: proto_random_pb.InitiateResponse) => void) {
     if (callback !== undefined) {
       return this.client_.rpcCall(
@@ -76,7 +79,10 @@ export class RandomClient {
     this.methodInfoChatInitiate);
   }
 
-  methodInfoSendMessage = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoSendMessage = new grpcWeb.MethodDescriptor(
+    '/randomPackage.Random/SendMessage',
+    grpcWeb.MethodType.UNARY,
+    proto_random_pb.MessageRequest,
     google_protobuf_empty_pb.Empty,
     (request: proto_random_pb.MessageRequest) => {
       return request.serializeBinary();
@@ -91,13 +97,13 @@ export class RandomClient {
   sendMessage(
     request: proto_random_pb.MessageRequest,
     metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.Error,
+    callback: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void): grpcWeb.ClientReadableStream<google_protobuf_empty_pb.Empty>;
 
   sendMessage(
     request: proto_random_pb.MessageRequest,
     metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.Error,
+    callback?: (err: grpcWeb.RpcError,
                response: google_protobuf_empty_pb.Empty) => void) {
     if (callback !== undefined) {
       return this.client_.rpcCall(
@@ -116,7 +122,10 @@ export class RandomClient {
     this.methodInfoSendMessage);
   }
 
-  methodInfoUserStream = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoUserStream = new grpcWeb.MethodDescriptor(
+    '/randomPackage.Random/UserStream',
+    grpcWeb.MethodType.SERVER_STREAMING,
+    proto_random_pb.StreamRequest,
     proto_random_pb.UserStreamResponse,
     (request: proto_random_pb.StreamRequest) => {
       return request.serializeBinary();
@@ -135,7 +144,10 @@ export class RandomClient {
       this.methodInfoUserStream);
   }
 
-  methodInfoChatStream = new grpcWeb.AbstractClientBase.MethodInfo(
+  methodInfoChatStream = new grpcWeb.MethodDescriptor(
+    '/randomPackage.Random/ChatStream',
+    grpcWeb.MethodType.SERVER_STREAMING,
+    proto_random_pb.StreamRequest,
     proto_random_pb.StreamMessage,
     (request: proto_random_pb.StreamRequest) => {
       return request.serializeBinary();

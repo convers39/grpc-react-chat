@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "node-redis-pubsub": "^5.0.0",
+    "redis": "^3.1.2"
+  },
+  "devDependencies": {
+    "@grpc/grpc-js": "^1.3.2",
+    "@grpc/proto-loader": "^0.6.2",
+    "@types/node-redis-pubsub": "^3.0.0",
+    "@types/redis": "^2.8.30",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "node-grpc",
+  "scripts": {
+    "proto:gen": "rm -rm ./proto/randomPackage && ./proto/proto-gen.sh",
+    "start": "ts-node server"
+  },
+  "version": "1.0.0"
+}
