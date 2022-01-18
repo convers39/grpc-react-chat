@@ -17,10 +17,10 @@ services:
     networks:
       - default
   redis:
-    image: bitnami/redis
-    command: ["redis-server", "--bind", "redis", "--port", "6379"]
+    image: redis:latest
+    # command: ["redis-server", "--bind", "redis", "--port", "6379"]
     volumes:
-      - ./redis/data:/bitnami/redis/data
+      - ./redis/data:/data
     container_name: redis-db
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
