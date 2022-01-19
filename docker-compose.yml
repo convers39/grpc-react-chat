@@ -28,11 +28,12 @@ services:
       - default
   server:
     build:
-      context: ./server/
+      context: .
+      dockerfile: ./server/Dockerfile
     container_name: node-server
     restart: always
     volumes:
-      - ./server/:/app
+      - ./server:/app
       - ./server/node_modules:/app/node_modules
     ports:
       - 9090:9090
@@ -43,11 +44,12 @@ services:
       - default
   client:
     build:
-      context: ./client/
+      context: .
+      dockerfile: ./client/Dockerfile
     container_name: react-client
     restart: always
     volumes:
-      - ./client/:/app
+      - ./client:/app
       - ./client/node_modules:/app/node_modules
     ports:
       - 3000:3000
