@@ -8,7 +8,7 @@ const REDIST_KEYS = {
   users: 'users'
 }
 
-const client = redis.createClient({ host: 'redis', port: 6379 })
+const client = redis.createClient({ host: 'db', port: 6379 })
 
 client.on('error', console.error)
 client.on('connect', console.log)
@@ -63,6 +63,6 @@ export const updateUser = (user: User, fn: errCB) => {
 
 export default client
 export const nrp = NRP({
-  emitter: redis.createClient({ host: 'redis', port: 6379 }),
-  receiver: redis.createClient({ host: 'redis', port: 6379 })
+  emitter: redis.createClient({ host: 'db', port: 6379 }),
+  receiver: redis.createClient({ host: 'db', port: 6379 })
 })

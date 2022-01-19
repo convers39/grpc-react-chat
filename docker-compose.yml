@@ -6,7 +6,6 @@ networks:
 
 services:
   proxy:
-    # image: envoyproxy/envoy-dev:e4955aed5694f9935d674419dbb364e744f697b4
     image: envoyproxy/envoy:v1.21.0
     container_name: envoy-proxy
     volumes:
