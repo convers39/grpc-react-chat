@@ -28,8 +28,7 @@ services:
       - default
   server:
     build:
-      context: .
-      dockerfile: ./server/Dockerfile
+      context: ./server
     container_name: node-server
     restart: always
     volumes:
@@ -44,8 +43,7 @@ services:
       - default
   client:
     build:
-      context: .
-      dockerfile: ./client/Dockerfile
+      context: ./client
     container_name: react-client
     restart: always
     volumes:
